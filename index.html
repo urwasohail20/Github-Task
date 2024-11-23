@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        /* Global reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f3f4f7, #e5e8ec);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar-container {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            backdrop-filter: blur(10px);
+            background: rgba(30, 8, 233, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1rem;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .nav-links li a:hover {
+            color: #0078d7;
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #0078d7;
+            left: 50%;
+            bottom: -5px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .nav-links li a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        /* Centered search container */
+        .search-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 5px 15px;
+            border-radius: 50px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-input {
+            border: none;
+            outline: none;
+            background: transparent;
+            font-size: 1rem;
+            width: 200px;
+            color: #333;
+        }
+
+        .search-input::placeholder {
+            color: #888;
+            font-style: italic;
+        }
+
+        .search-btn {
+            background: #0078d7;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .search-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive design */
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .search-input {
+                width: 100px;
+            }
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unique Navbar Design</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="navbar-container">
+        <nav class="navbar">
+            <div class="logo">Brand</div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Type to search...">
+                <button class="search-btn">🔍</button>
+            </div>
+        </nav>
+    </header>
+    <script src="script.js"></script>
+</body>
+
+</html>
