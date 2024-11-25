@@ -1,165 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <style>
-        /* Global reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Footer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #f3f4f7, #e5e8ec);
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
 
-        .navbar-container {
-            width: 100%;
-            position: fixed;
-            top: 0;
-            backdrop-filter: blur(10px);
-            background: rgba(30, 8, 233, 0.1);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            z-index: 100;
-        }
+    footer {
+      background-color: #1d1f21;
+      color: #fff;
+      padding: 40px 20px;
+    }
 
-        .navbar {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-        }
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
 
+    .footer-container div {
+      flex: 1 1 250px;
+      margin: 10px;
+    }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #333;
-            text-transform: uppercase;
-        }
+    .footer-about,
+    .footer-links,
+    .footer-social {
+      max-width: 300px;
+    }
 
+    .footer-about h3,
+    .footer-links h3,
+    .footer-social h3 {
+      margin-bottom: 20px;
+      font-size: 18px;
+      color: #ffd700;
+    }
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
+    .footer-links ul {
+      list-style: none;
+    }
 
-        .nav-links li a {
-            text-decoration: none;
-            color: #333;
-            font-size: 1rem;
-            font-weight: 500;
-            position: relative;
-            transition: color 0.3s ease-in-out;
-        }
+    .footer-links ul li {
+      margin: 10px 0;
+    }
 
-        .nav-links li a:hover {
-            color: #0078d7;
-        }
+    .footer-links ul li a {
+      color: #bbb;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
 
-        .nav-links li a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background: #0078d7;
-            left: 50%;
-            bottom: -5px;
-            transition: all 0.3s ease-in-out;
-        }
+    .footer-links ul li a:hover {
+      color: #fff;
+    }
 
-        .nav-links li a:hover::after {
-            width: 100%;
-            left: 0;
-        }
+    .footer-social a {
+      color: #bbb;
+      margin-right: 15px;
+      font-size: 20px;
+      transition: color 0.3s;
+    }
 
-        /* Centered search container */
-        .search-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 5px 15px;
-            border-radius: 50px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
+    .footer-social a:hover {
+      color: #ffd700;
+    }
 
-        .search-input {
-            border: none;
-            outline: none;
-            background: transparent;
-            font-size: 1rem;
-            width: 200px;
-            color: #333;
-        }
+    .footer-newsletter input {
+      width: calc(100% - 50px);
+      padding: 10px;
+      margin-bottom: 10px;
+      border: none;
+      border-radius: 5px;
+    }
 
-        .search-input::placeholder {
-            color: #888;
-            font-style: italic;
-        }
+    .footer-newsletter button {
+      padding: 10px 20px;
+      background-color: #ffd700;
+      border: none;
+      border-radius: 5px;
+      color: #1d1f21;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
 
-        .search-btn {
-            background: #0078d7;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 35px;
-            height: 35px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
+    .footer-newsletter button:hover {
+      background-color: #ffa500;
+    }
 
-        .search-btn:hover {
-            transform: scale(1.1);
-        }
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 14px;
+      color: #bbb;
+    }
 
-        /* Responsive design */
-        @media screen and (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .search-input {
-                width: 100px;
-            }
-        }
-    </style>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unique Navbar Design</title>
-    <link rel="stylesheet" href="styles.css">
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .footer-container div {
+        margin: 20px 0;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <header class="navbar-container">
-        <nav class="navbar">
-            <div class="logo">Brand</div>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Type to search...">
-                <button class="search-btn">🔍</button>
-            </div>
-        </nav>
-    </header>
-    <script src="script.js"></script>
+  <footer>
+    <div class="footer-container">
+      <div class="footer-about">
+        <h3>About Us</h3>
+        <p>Fast Cell Repair provides top-notch device repair and sales services across eight convenient locations. Your trusted partner in tech for over 10 years.</p>
+      </div>
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#locations">Our Locations</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="#warranty">Warranty Info</a></li>
+        </ul>
+      </div>
+      <div class="footer-newsletter">
+        <h3>Newsletter</h3>
+        <form action="#">
+          <input type="email" placeholder="Enter your email" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+      <div class="footer-social">
+        <h3>Follow Us</h3>
+        <a href="#" aria-label="Facebook">🌐</a>
+        <a href="#" aria-label="Twitter">🐦</a>
+        <a href="#" aria-label="Instagram">📸</a>
+        <a href="#" aria-label="LinkedIn">🔗</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Fast Cell Repair. All rights reserved.</p>
+    </div>
+  </footer>
 </body>
-
 </html>
